@@ -1,0 +1,15 @@
+.DS_Store
+**/.DS_Store
+*.bak
+*.bak.*
+optimize.sh
+# Projects tab still in development — not published yet
+projects.html
+assets/projects/
+
+# removed / unused works — keep local, don't publish
+collage.jpg
+geo_paint.jpg
+lady_shalot_iris.jpg
+smears.jpg
+tribal_man.jpg

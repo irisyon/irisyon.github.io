@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Iris Yon</title>
+  <meta name="description" content="Contact Iris Yon for exhibitions, commissions, and acquisitions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/museum.css?v=25">
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <a class="brand" href="index.html">Iris<span>&middot;</span>Yon</a>
+      <button class="nav__toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="nav" id="primary-nav">
+        <a href="statement.html">Statement</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html" class="is-active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact" data-reveal>
+      <span class="overline">Contact</span>
+      <h1>Let&rsquo;s connect</h1>
+      <p class="contact__lede">
+        For exhibitions, commissions, or studio visits, drop me a note.
+      </p>
+
+      <!-- Connected to Web3Forms — Send delivers straight to irisyon@berkeley.edu.
+           (Access keys are meant to live in the page; this one is safe to be public.) -->
+      <form class="contact-form" data-contact-form>
+        <input type="hidden" name="access_key" value="8b3a2e17-3e32-4b9c-a2c5-6a5315fa6b5a">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+        <label class="field">
+          <span class="field__label">Your email</span>
+          <input type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </label>
+        <label class="field">
+          <span class="field__label">Subject <span class="field__opt">(optional)</span></span>
+          <input type="text" name="subject" placeholder="What's this about?">
+        </label>
+        <label class="field">
+          <span class="field__label">Message</span>
+          <textarea name="message" rows="6" required placeholder="Write your message…"></textarea>
+        </label>
+        <button type="submit" class="btn">Send</button>
+        <p class="contact-form__note" data-form-note aria-live="polite"></p>
+      </form>
+
+      <p class="contact__alt">or find me on <a href="https://www.linkedin.com/in/irisyon/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span class="site-footer__brand">Iris Yon</span>
+      <nav class="site-footer__links">
+        <a href="statement.html">Statement</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/irisyon/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:irisyon@berkeley.edu">Email</a>
+      </nav>
+      <p class="site-footer__fine">&copy; <span data-year>2026</span> Iris Yon. All works and images are the property of the artist.</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js?v=25"></script>
+</body>
+</html>
