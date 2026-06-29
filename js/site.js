@@ -248,6 +248,7 @@
             '<p class="gv__count">' + pad(i + 1) + " / " + pad(n) + "</p>" +
             '<h2 class="gv__title">' + title + "</h2>" +
             '<p class="gv__meta">' + esc(meta) + "</p>" +
+            (w.description ? '<button class="gv__about" data-i="' + i + '">read about this work <span>&rarr;</span></button>' : "") +
             '<nav class="gv__index">' + indexHtml(i) + "</nav>" +
             (i < n - 1 ? '<div class="gv__cue">' + cue + (i === 0 ? "<span>scroll</span>" : "") + "</div>" : "") +
           "</div>" +
@@ -269,8 +270,42 @@
       });
     });
 
+    // reading overlay — "read about this work" for works that carry a description
+    var reader = document.createElement("div");
+    reader.className = "reader";
+    reader.innerHTML =
+      '<button class="reader__close" aria-label="Close">&times;</button>' +
+      '<div class="reader__panel" role="dialog" aria-modal="true" aria-label="About the work">' +
+        '<p class="reader__eyebrow">about the work</p>' +
+        '<h3 class="reader__title"></h3>' +
+        '<div class="reader__body"></div>' +
+      "</div>";
+    document.body.appendChild(reader);
+    var rTitle = $(".reader__title", reader), rBody = $(".reader__body", reader), rPanel = $(".reader__panel", reader);
+    function openReader(i) {
+      var w = works[i]; if (!w || !w.description) return;
+      rTitle.textContent = w.title;
+      var paras = Array.isArray(w.description) ? w.description : [w.description];
+      rBody.innerHTML = paras.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("");
+      rPanel.scrollTop = 0;
+      reader.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      root.classList.remove("cursor-on");
+    }
+    function closeReader() {
+      reader.classList.remove("is-open");
+      document.body.style.overflow = "";
+      if (fine && !reduce) root.classList.add("cursor-on");
+    }
+    $(".reader__close", reader).addEventListener("click", closeReader);
+    reader.addEventListener("click", function (e) { if (e.target === reader) closeReader(); });
+    $all(".gv__about", mount).forEach(function (b) {
+      b.addEventListener("click", function () { openReader(parseInt(b.getAttribute("data-i"), 10)); });
+    });
+
     // keyboard: arrows move between works (scroll-snap handles wheel / trackpad / touch)
     document.addEventListener("keydown", function (e) {
+      if (reader.classList.contains("is-open")) { if (e.key === "Escape") closeReader(); return; }
       if (!mount.isConnected || document.querySelector(".lightbox.is-open")) return;
       var dir = (e.key === "ArrowDown" || e.key === "ArrowRight") ? 1
               : (e.key === "ArrowUp" || e.key === "ArrowLeft") ? -1 : 0;
