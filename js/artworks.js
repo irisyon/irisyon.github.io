@@ -31,7 +31,7 @@ window.ARTWORKS = [
 
   { img: "assets/works/flag.jpg", w: 1920, h: 1488,
     title: "태극기", year: "n.d.",
-    medium: "Acrylic on canvas", size: "12 × 16 in (30 × 41 cm)", scale: 0.5,
+    medium: "Acrylic on canvas", size: "12 × 16 in (30 × 41 cm)", scale: 0.72,
     border: { frame: "#111111", frameW: 10 }, note: "",
     description: [
       "The work draws from the layered history of South Korea, shaped by war, division, and reconstruction, as well as cultural structures that emphasize discipline, cohesion, and collective perception. Returning as an adult sharpened an awareness of how these frameworks subtly contour behavior and expression, particularly in relation to creativity, which can be guided toward clarity, restraint, and legibility.",
@@ -41,7 +41,7 @@ window.ARTWORKS = [
 
   { img: "assets/works/outside_boxes.jpg", w: 1920, h: 1433,
     title: "Think Outside the Boxes", year: "n.d.",
-    medium: "Acrylic on canvas", size: "12 × 16 in (30 × 41 cm)", scale: 0.5,
+    medium: "Acrylic on canvas", size: "12 × 16 in (30 × 41 cm)", scale: 0.72,
     border: { mat: "#ffffff", matW: 22, frame: "rgba(196,156,48,0.72)", frameW: 10 }, note: "",
     description: [
       "This work considers how systems of evaluation define value through comparison and containment, shaping what forms of expression are allowed to register as legible, successful, or worthy. Within this logic, human potential is translated into measurable outcomes through frameworks that privilege categorization, ranking, and standardized interpretation, where division itself becomes a method of meaning-making. The composition draws on this structure through grids, boxes, and bounded fields that mirror systems of assessment and control.",
