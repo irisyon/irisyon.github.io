@@ -242,7 +242,6 @@
           '<div class="gv__stage">' +
             '<img class="gv__art" decoding="async" alt="' + esc(w.title) + '"' +
               ' data-title="' + esc(w.title) + '" data-sub="' + esc(sub) + '">' +
-            (i < n - 1 ? '<div class="gv__cue">' + cue + (i === 0 ? "<span>scroll</span>" : "") + "</div>" : "") +
           "</div>" +
           '<div class="gv__panel">' +
             '<p class="gv__role">Painter + Creative Technologist</p>' +
@@ -250,6 +249,7 @@
             '<h2 class="gv__title">' + title + "</h2>" +
             '<p class="gv__meta">' + esc(meta) + "</p>" +
             '<nav class="gv__index">' + indexHtml(i) + "</nav>" +
+            (i < n - 1 ? '<div class="gv__cue">' + cue + (i === 0 ? "<span>scroll</span>" : "") + "</div>" : "") +
           "</div>" +
         "</section>";
     }).join("");

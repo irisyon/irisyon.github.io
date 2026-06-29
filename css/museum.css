@@ -1129,16 +1129,17 @@ body.page-gallery .masthead { position: static; flex: none; z-index: 50; }
 
 /* scroll cue on the first screen */
 .gv__cue {
-  position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+  position: absolute; left: clamp(1.6rem, 3.5vw, 3.6rem); bottom: clamp(1.4rem, 3vh, 2rem);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem;
   font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--muted);
-  pointer-events: none;
+  pointer-events: none; text-align: left;
 }
 @media (prefers-reduced-motion: no-preference) { .gv__cue svg { animation: cueBob 1.7s ease-in-out infinite; } }
 @keyframes cueBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
 /* right — info + index (identical per section → reads as persistent while paintings scroll) */
 .gv__panel {
+  position: relative;
   display: flex; flex-direction: column; justify-content: center;
   padding: clamp(2rem, 4vw, 4rem) clamp(1.6rem, 3.5vw, 3.6rem);
   border-left: 1px solid var(--line); background: var(--paper); min-width: 0;
