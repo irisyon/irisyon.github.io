@@ -63,21 +63,17 @@
     if (hk && $('.proj-tab[data-proj="' + hk + '"]', projTabs)) showProj(hk);
   }
 
-  // lazy-load the embedded Synapse suite when it nears the viewport (keeps the page light on open)
+  // click-to-load the embedded Synapse suite — keeps the page completely light until the user asks for it
   var embedFrame = $("[data-embed-frame]");
   if (embedFrame && embedFrame.getAttribute("data-src")) {
+    var embedWrap = embedFrame.closest(".embed__frame");
     var loadEmbed = function () {
       if (!embedFrame.getAttribute("src")) {
         embedFrame.setAttribute("src", embedFrame.getAttribute("data-src"));
-        var wrap = embedFrame.closest(".embed__frame"); if (wrap) wrap.classList.add("is-on");
+        if (embedWrap) embedWrap.classList.add("is-on");
       }
     };
-    if ("IntersectionObserver" in window) {
-      var eio = new IntersectionObserver(function (ents) {
-        ents.forEach(function (e) { if (e.isIntersecting) { loadEmbed(); eio.disconnect(); } });
-      }, { rootMargin: "300px" });
-      eio.observe(embedFrame);
-    } else { loadEmbed(); }
+    if (embedWrap) embedWrap.addEventListener("click", loadEmbed, { once: true });
   }
 
   /* ---------- Lazy-load + autoplay the output video only when it nears the viewport ---------- */
