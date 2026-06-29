@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Iris Yon</title>
+  <meta name="description" content="Selected projects — Synapse, a suite of sensory creative tools you can play with live, and FrameGen, a story-first generative-AI film pipeline.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/museum.css?v=42">
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <a class="brand" href="index.html">Iris<span>&middot;</span>Yon</a>
+      <button class="nav__toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="nav" id="primary-nav">
+        <a href="statement.html">Statement</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html" class="is-active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-head">
+      <div class="container">
+        <span class="overline">Selected work</span>
+        <h1>Projects</h1>
+        <p class="page-head__sub">Fun things I'm building as a creative technologist.</p>
+      </div>
+    </header>
+
+    <div class="projects">
+
+      <!-- switcher -->
+      <div class="proj-tabs" data-proj-tabs role="tablist" aria-label="Projects">
+        <button class="proj-tab is-active" data-proj="synapse" role="tab" aria-selected="true">
+          synapse <span>sensory tools · live</span>
+        </button>
+        <button class="proj-tab" data-proj="framegen" role="tab" aria-selected="false">
+          framegen <span>ai film pipeline</span>
+        </button>
+      </div>
+
+      <!-- ============ SYNAPSE ============ -->
+      <section class="proj-panel is-active" data-panel="synapse" data-reveal>
+        <div class="project__intro">
+          <h2 class="project__name">synapse <span>2026–</span></h2>
+          <p class="project__lede">
+            A suite of browser tools for visualizing the senses in combination — sound into image,
+            image into sound, touch into light. Each hands you the mapping itself, so you compose
+            your own cross-sensory language.
+          </p>
+          <p class="project__links"><a href="https://synapse-art.pages.dev" target="_blank" rel="noopener">open the full suite ↗</a></p>
+        </div>
+
+        <h3 class="project__section-head">play with it — live, in this page</h3>
+        <div class="embed" data-embed>
+          <div class="embed__frame">
+            <iframe data-embed-frame data-src="https://synapse-art.pages.dev/" title="Synapse — the live suite" allow="camera; microphone" referrerpolicy="no-referrer" loading="lazy"></iframe>
+          </div>
+          <p class="embed__note">
+            <span>the live suite — pick any sense inside to play with it, right here.</span>
+            <a href="https://synapse-art.pages.dev" target="_blank" rel="noopener">open full ↗</a>
+          </p>
+        </div>
+
+        <h3 class="project__section-head">an output</h3>
+        <figure class="shot shot--video">
+          <div class="vid">
+            <video autoplay loop muted playsinline preload="none" poster="assets/projects/synapse-sight-poster.jpg" data-lazy-video>
+              <source data-src="assets/projects/synapse-sight.webm" type="video/webm">
+            </video>
+          </div>
+          <figcaption>sight — a painting melted and re-timed through stacked, keyframed effects, looping straight from the tool.</figcaption>
+        </figure>
+
+        <h3 class="project__section-head">the tools</h3>
+        <ul class="caps">
+          <li>
+            <span class="caps__k">touch <em class="is-live">live</em></span>
+            <span class="caps__v">Conduct a glowing particle field with your cursor or your hands — on-device webcam, nothing uploaded.</span>
+          </li>
+          <li>
+            <span class="caps__k">sight <em class="is-live">live</em></span>
+            <span class="caps__v">Stack masked effect layers on any image, keyframe every parameter on a timeline, export video or a frame sequence.</span>
+          </li>
+          <li>
+            <span class="caps__k">sound <em class="is-live">live</em></span>
+            <span class="caps__v">Dissect audio into FFT spectrum, beats and bands, then bind any sound feature to any visual property.</span>
+          </li>
+          <li>
+            <span class="caps__k">tune <em class="is-live">live</em></span>
+            <span class="caps__v">Split an image into zones that each pick an instrument from their colour and texture, then perform the picture.</span>
+          </li>
+          <li>
+            <span class="caps__k">the idea</span>
+            <span class="caps__v">Every tool ships research-grounded defaults — then exposes the mapping as something you can rewrite, so the synesthesia is yours.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ FRAMEGEN ============ -->
+      <section class="proj-panel" data-panel="framegen" data-reveal hidden>
+        <div class="project__intro">
+          <h2 class="project__name">framegen <span>2026–</span></h2>
+          <p class="project__lede">
+            A story-first, generative-AI film pipeline. You write the brief — character, setting,
+            script, mood, camera — lay your film out as a sequence of moments, and block exactly who's
+            in each shot. FrameGen carries that blocking through design, 3D, lighting and compositing
+            into finished cinematic frames. Runs locally over Blender, ComfyUI and a local LLM.
+          </p>
+        </div>
+
+        <h3 class="project__section-head">an output</h3>
+        <figure class="shot shot--hero">
+          <img src="assets/projects/framegen-output.png" alt="FrameGen render — seven figures standing in a ring inside a shaft of light" loading="lazy">
+          <figcaption>seven figures blocked in a ring, one at the centre — the exact count locked, then rendered through to a finished cinematic frame.</figcaption>
+        </figure>
+
+        <h3 class="project__section-head">the workbench</h3>
+        <figure class="shot">
+          <img src="assets/projects/framegen-ui.jpg" alt="FrameGen app — story brief on the left, a storyboard of moments in the centre, pipeline stages across the top" loading="lazy">
+          <figcaption>the story brief drives every stage; lay your film out as moments, then move each through the pipeline.</figcaption>
+        </figure>
+
+        <h3 class="project__section-head">how it works</h3>
+        <ul class="caps">
+          <li>
+            <span class="caps__k">story-first</span>
+            <span class="caps__v">A brief — character, setting, script / play-by-play, mood and camera — drives every stage. Lay your film out as a sequence of moments; each becomes a shot.</span>
+          </li>
+          <li>
+            <span class="caps__k">block the shot</span>
+            <span class="caps__v">Place figures and the camera in a 3D blockout and lock an exact head-count — the render gives you those figures, in that arrangement, every time.</span>
+          </li>
+          <li>
+            <span class="caps__k">design &amp; direct</span>
+            <span class="caps__v">Choose a film style and shot type — wide, close, over-shoulder, dutch — with pose and depth references; DWPose and ControlNet hold the composition.</span>
+          </li>
+          <li>
+            <span class="caps__k">staged pipeline</span>
+            <span class="caps__v">Story → layout → design → detail → 3D form → surface → lighting → compositing → final look → sequence. Lock a stage you like; only what's downstream re-renders.</span>
+          </li>
+          <li>
+            <span class="caps__k">local &amp; open</span>
+            <span class="caps__v">Runs on your own machine over Blender, ComfyUI and a local LLM — no cloud, no per-render bill.</span>
+          </li>
+        </ul>
+        <p class="project__links">runs locally — not publicly hosted yet.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span class="site-footer__brand">Iris Yon</span>
+      <nav class="site-footer__links">
+        <a href="statement.html">Statement</a>
+        <a href="cv.html">CV</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/irisyon/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:irisyon@berkeley.edu">Email</a>
+      </nav>
+      <p class="site-footer__fine">&copy; <span data-year>2026</span> Iris Yon. All works and images are the property of the artist.</p>
+    </div>
+  </footer>
+
+  <script src="js/site.js?v=42"></script>
+</body>
+</html>

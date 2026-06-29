@@ -3,9 +3,6 @@
 *.bak
 *.bak.*
 optimize.sh
-# Projects tab still in development — not published yet
-projects.html
-assets/projects/
 
 # removed / unused works — keep local, don't publish
 collage.jpg

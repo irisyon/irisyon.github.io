@@ -36,6 +36,69 @@
   /* ---------- Footer year ---------- */
   var yr = $("[data-year]"); if (yr) yr.textContent = new Date().getFullYear();
 
+  /* ---------- Projects: tab switcher + live tool embeds ---------- */
+  var projTabs = $("[data-proj-tabs]");
+  if (projTabs) {
+    var projPanels = $all(".proj-panel");
+    var showProj = function (key) {
+      $all(".proj-tab", projTabs).forEach(function (t) {
+        var on = t.getAttribute("data-proj") === key;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      projPanels.forEach(function (p) {
+        var on = p.getAttribute("data-panel") === key;
+        p.hidden = !on;
+        p.classList.toggle("is-active", on);
+      });
+    };
+    $all(".proj-tab", projTabs).forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var key = tab.getAttribute("data-proj");
+        showProj(key);
+        try { history.replaceState(null, "", "#" + key); } catch (e) {}
+      });
+    });
+    var hk = (location.hash || "").replace("#", "");
+    if (hk && $('.proj-tab[data-proj="' + hk + '"]', projTabs)) showProj(hk);
+  }
+
+  // lazy-load the embedded Synapse suite when it nears the viewport (keeps the page light on open)
+  var embedFrame = $("[data-embed-frame]");
+  if (embedFrame && embedFrame.getAttribute("data-src")) {
+    var loadEmbed = function () {
+      if (!embedFrame.getAttribute("src")) {
+        embedFrame.setAttribute("src", embedFrame.getAttribute("data-src"));
+        var wrap = embedFrame.closest(".embed__frame"); if (wrap) wrap.classList.add("is-on");
+      }
+    };
+    if ("IntersectionObserver" in window) {
+      var eio = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) { if (e.isIntersecting) { loadEmbed(); eio.disconnect(); } });
+      }, { rootMargin: "300px" });
+      eio.observe(embedFrame);
+    } else { loadEmbed(); }
+  }
+
+  /* ---------- Lazy-load + autoplay the output video only when it nears the viewport ---------- */
+  var lazyVid = $("[data-lazy-video]");
+  if (lazyVid) {
+    var vsrc = $("source", lazyVid);
+    var startVid = function () {
+      if (vsrc && vsrc.getAttribute("data-src") && !vsrc.getAttribute("src")) {
+        vsrc.setAttribute("src", vsrc.getAttribute("data-src"));
+        lazyVid.load();
+        var pr = lazyVid.play(); if (pr && pr.catch) pr.catch(function () {});
+      }
+    };
+    if ("IntersectionObserver" in window) {
+      var vio = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) { if (e.isIntersecting) { startVid(); vio.disconnect(); } });
+      }, { rootMargin: "300px" });
+      vio.observe(lazyVid);
+    } else { startVid(); }
+  }
+
   /* ---------- Contact form (sends straight to the inbox via Web3Forms) ---------- */
   var cform = $("[data-contact-form]");
   if (cform) {
