@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Iris Yon</title>
-  <meta name="description" content="Selected projects — Synapse, a suite of sensory creative tools you can play with live, and FrameGen, a story-first generative-AI film pipeline.">
+  <meta name="description" content="Selected projects — Synapse, a suite of sensory creative tools you can play with live, FrameGen, a story-first generative-AI film pipeline, and a realtime facial motion capture application.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/museum.css?v=44">
+  <link rel="stylesheet" href="css/museum.css?v=45">
 </head>
 <body>
   <header class="masthead">
@@ -18,10 +18,12 @@
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
       <nav class="nav" id="primary-nav">
-        <a href="statement.html">Statement</a>
-        <a href="cv.html">CV</a>
-        <a href="projects.html" class="is-active">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="paintings.html">paintings</a>
+        <a href="digital.html">digital</a>
+        <a href="projects.html" class="is-active">tools</a>
+        <a href="statement.html">statement</a>
+        <a href="cv.html">cv</a>
+        <a href="contact.html">contact</a>
       </nav>
     </div>
   </header>
@@ -35,20 +37,43 @@
       </div>
     </header>
 
-    <div class="projects">
-
-      <!-- switcher -->
-      <div class="proj-tabs" data-proj-tabs role="tablist" aria-label="Projects">
-        <button class="proj-tab is-active" data-proj="synapse" role="tab" aria-selected="true">
-          synapse <span>sensory tools · live</span>
-        </button>
-        <button class="proj-tab" data-proj="framegen" role="tab" aria-selected="false">
-          framegen <span>ai film pipeline</span>
-        </button>
+    <!-- Sticky project nav (fixed, appears after top index scrolls out) -->
+    <nav class="proj-sticky-nav" id="proj-sticky-nav" aria-label="Jump to project">
+      <div class="proj-sticky-nav__inner">
+        <a href="#synapse" class="proj-sticky-nav__item" data-for="synapse">
+          <span class="proj-sticky-nav__num">01</span>synapse
+        </a>
+        <a href="#framegen" class="proj-sticky-nav__item" data-for="framegen">
+          <span class="proj-sticky-nav__num">02</span>framegen
+        </a>
+        <a href="#facemocap" class="proj-sticky-nav__item" data-for="facemocap">
+          <span class="proj-sticky-nav__num">03</span>facial mocap
+        </a>
       </div>
+    </nav>
 
-      <!-- ============ SYNAPSE ============ -->
-      <section class="proj-panel is-active" data-panel="synapse" data-reveal>
+    <!-- Project index -->
+    <div class="proj-index" aria-label="Project list">
+      <a class="proj-index__item" href="#synapse">
+        <span class="proj-index__num">01</span>
+        <span class="proj-index__name">synapse</span>
+        <span class="proj-index__meta">sensory tools &middot; live</span>
+      </a>
+      <a class="proj-index__item" href="#framegen">
+        <span class="proj-index__num">02</span>
+        <span class="proj-index__name">framegen</span>
+        <span class="proj-index__meta">ai film pipeline</span>
+      </a>
+      <a class="proj-index__item" href="#facemocap">
+        <span class="proj-index__num">03</span>
+        <span class="proj-index__name">facial mocap</span>
+        <span class="proj-index__meta">ARKit &middot; Maya &middot; C++</span>
+      </a>
+    </div>
+
+    <!-- ============ SYNAPSE ============ -->
+    <section class="proj-entry" id="synapse" data-reveal>
+      <div class="projects">
         <div class="project__intro">
           <h2 class="project__name">synapse <span>2026–</span></h2>
           <p class="project__lede">
@@ -62,6 +87,10 @@
         <h3 class="project__section-head">play with it — live, in this page</h3>
         <div class="embed" data-embed>
           <div class="embed__frame">
+            <div class="embed__cover" aria-hidden="true">
+              <img src="assets/projects/synapse-lockup.png" alt="" class="embed__cover__logo" draggable="false">
+              <span class="embed__cover__cta">click to launch the live suite →</span>
+            </div>
             <iframe data-embed-frame data-src="https://synapse-art.pages.dev/" title="Synapse — the live suite" allow="camera; microphone" referrerpolicy="no-referrer" loading="lazy"></iframe>
           </div>
           <p class="embed__note">
@@ -103,10 +132,12 @@
             <span class="caps__v">Every tool ships research-grounded defaults — then exposes the mapping as something you can rewrite, so the synesthesia is yours.</span>
           </li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <!-- ============ FRAMEGEN ============ -->
-      <section class="proj-panel" data-panel="framegen" data-reveal hidden>
+    <!-- ============ FRAMEGEN ============ -->
+    <section class="proj-entry" id="framegen" data-reveal>
+      <div class="projects">
         <div class="project__intro">
           <h2 class="project__name">framegen <span>2026–</span></h2>
           <p class="project__lede">
@@ -153,19 +184,78 @@
           </li>
         </ul>
         <p class="project__links">runs locally — not publicly hosted yet.</p>
-      </section>
+      </div>
+    </section>
 
-    </div>
+    <!-- ============ FACIAL MOCAP ============ -->
+    <section class="proj-entry" id="facemocap" data-reveal>
+      <div class="projects">
+        <div class="project__intro">
+          <h2 class="project__name">facial motion capture <span>2022–2023</span></h2>
+          <p class="project__lede">
+            A realtime facial motion capture application built with ARKit, C++, Swift, Python, MEL,
+            and Autodesk Maya — developed as part of UC Berkeley's Advanced Digital Animation course
+            with a team of four. Captures live facial animation through the front-facing camera,
+            smooths the data using differential equations, interpolates to 24 fps, and transfers
+            it into Maya blendshapes for final character animation.
+          </p>
+          <p class="project__links">
+            <a href="https://github.com/irisyon/blendshapes" target="_blank" rel="noopener">github — irisyon/blendshapes ↗</a>
+          </p>
+        </div>
+
+        <h3 class="project__section-head">live capture</h3>
+        <figure class="shot">
+          <img src="assets/projects/facemocap/filter.gif" alt="ARKit face tracking — coloured mesh overlay recorded in realtime via front-facing camera" loading="lazy">
+          <figcaption>ARKit face mesh captured in realtime — the raw data stream before smoothing and resampling.</figcaption>
+        </figure>
+
+        <h3 class="project__section-head">character pipeline</h3>
+        <figure class="shot">
+          <img src="assets/projects/facemocap/char.gif" alt="3D character — shading, texturing and lighting breakdown" loading="lazy">
+          <figcaption>character shading, texturing, and lighting — one of the animated short film's principal characters.</figcaption>
+        </figure>
+
+        <h3 class="project__section-head">facial rig</h3>
+        <figure class="shot">
+          <img src="assets/projects/facemocap/rig.gif" alt="Maya facial rig with blendshape control handles" loading="lazy">
+          <figcaption>Maya facial rig with blendshape control handles — the capture data drives these directly, producing the final character animation.</figcaption>
+        </figure>
+
+        <h3 class="project__section-head">how it works</h3>
+        <ul class="caps">
+          <li>
+            <span class="caps__k">capture</span>
+            <span class="caps__v">ARKit's face-tracking API streams 52 blendshape coefficients per frame through a Swift + C++ mobile front-end using the self-facing camera — no markers, no calibration suit.</span>
+          </li>
+          <li>
+            <span class="caps__k">smooth &amp; resample</span>
+            <span class="caps__v">Raw ARKit data arrives at device frame rate; differential equations remove jitter and cubic interpolation resamples to exactly 24 fps to match the film's timeline.</span>
+          </li>
+          <li>
+            <span class="caps__k">blendshapes</span>
+            <span class="caps__v">A Python + MEL pipeline maps each coefficient to a corresponding blendshape target inside Maya, so the captured performance drives the rig directly.</span>
+          </li>
+          <li>
+            <span class="caps__k">impact</span>
+            <span class="caps__v">The tool produced the baseline facial animation for all principal characters and served as the final animation for most shots — filling a gap on a team without enough experienced animators to hand-key at that volume.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
       <span class="site-footer__brand">Iris Yon</span>
       <nav class="site-footer__links">
-        <a href="statement.html">Statement</a>
-        <a href="cv.html">CV</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+        <a href="paintings.html">paintings</a>
+        <a href="digital.html">digital</a>
+        <a href="projects.html">tools</a>
+        <a href="statement.html">statement</a>
+        <a href="cv.html">cv</a>
+        <a href="contact.html">contact</a>
         <a href="https://www.linkedin.com/in/irisyon/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:irisyon@berkeley.edu">Email</a>
       </nav>
@@ -173,6 +263,33 @@
     </div>
   </footer>
 
-  <script src="js/site.js?v=44"></script>
+  <script src="js/site.js?v=45"></script>
+  <script>
+  (function () {
+    var stickyNav = document.getElementById('proj-sticky-nav');
+    var projIndex = document.querySelector('.proj-index');
+    if (!stickyNav || !projIndex) return;
+    var navItems = stickyNav.querySelectorAll('.proj-sticky-nav__item');
+
+    new IntersectionObserver(function (entries) {
+      stickyNav.classList.toggle('is-visible', !entries[0].isIntersecting);
+    }, { rootMargin: '-60px 0px 0px 0px' }).observe(projIndex);
+
+    var sectionObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var id = e.target.id;
+          navItems.forEach(function (a) {
+            a.classList.toggle('is-active', a.dataset.for === id);
+          });
+        }
+      });
+    }, { rootMargin: '-10% 0px -60% 0px' });
+
+    document.querySelectorAll('.proj-entry[id]').forEach(function (el) {
+      sectionObs.observe(el);
+    });
+  })();
+  </script>
 </body>
 </html>
